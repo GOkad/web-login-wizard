@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Form from './pages/Form';
+import Landing from './pages/Landing';
+import Success from './pages/Success';
+import Validation from './pages/Validation';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Header />
+        <Route path="/" exact component={Landing} />
+        <Route path="/form" component={Form} />
+        <Route path="/validate" component={Validation} />
+        <Route path="/success" component={Success} />
+    </Router>
   );
 }
 
